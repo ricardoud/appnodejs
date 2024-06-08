@@ -12,6 +12,13 @@ app.use(express.urlencoded({ extended: false }));
 //app.use(express.json)
 //app.use(express.urlencoded({extended:false}))
 
+app.listen(3000, function(){
+
+
+  console.log("Servidor creado");
+  
+}
+)
 
 
 const conexion = mysql.createConnection({
@@ -21,7 +28,7 @@ const conexion = mysql.createConnection({
     password: "4JR2cAZypsGUws3mzNLi"
   });
   
-  // Conectar a la base de datos
+  // Conectar a la base de datos  
   conexion.connect((err) => {
     if (err) {
       console.log("ERROR")
@@ -33,25 +40,27 @@ const conexion = mysql.createConnection({
 })
 
 
-app.get("/",function(req,res){
+app.get("/inicio",function(req,res){
 
-  res.render("inicio");
-
-});
-
-
-app.get("/documentacion",function(req,res){
-
-  res.render("modulo1");  
+  res.render("inicio.ejs");
 
 });
 
 
+app.get("/inicio/estudiantes",function(req,res){
+
+  res.render("modulo1.ejs");  
+
+});
 
 
+app.get("/inicio/asignaturas",function(req,res){
 
+  res.render("inicio.ejs");  
 
-    // Realizar la consulta
+});
+
+// Realizar la consulta
 conexion.query('SELECT * FROM registro_alumnos where genero="M" LIMIT 3', (err, results, fields) => {
 if (err) {
         console.error('Error en la consulta: ' + err.stack);
@@ -63,19 +72,6 @@ if (err) {
       console.log(typeof(results))
     });
   
-
-
-
-
-
-app.listen(3000, function(){
-
-
-    console.log("Servidor creado");
-    
-}
-)
-
 
 app.post("/validar",function(req,res){
 

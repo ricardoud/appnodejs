@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina 1</title>
+    <title>Inicio AppWen NodeJs</title>
     <link rel="stylesheet" href="estilos_inicio.css" type="text/css">
 </head>
 <body>
+    <div class="contenedor">
 
     <h1 class="tituloini">Proyecto Final Programación Avanzada</h1>
-    <br>
-    <h2>Resumen:</h2>
-    <p>Esta aplicación web consulta los registro de una base de datos alojada en el portal web Clever Cloud, la cual, tiene una tabla
-        denominada registro_alumnos en la que reposa la información de 50 estudiantes de España. En esta se puede consultar el nombre,
-        apellidos, correo, genero, ciudad de origen, ingresos, y promedio de notas universitaras</p>
-    <br>
-    <h2>Consultas</h2>
-
+    <hr>
+    <p class="pint">Esta aplicación web esta diseñada con base a una API REST, y tiene por objetivoconsulta los registro de una base de datos alojada 
+        localmente, la cual, contiene información respecto de tres entidades principales (estudiantes, profesores, asignaturas). Asimismo, esta permite
+        consultar las relaciones que pueden surgir, es decir, las asignaturas que tienen los estudiantes inscritas, asignaturas impartidas por un
+        profesor, y demas. </p>
     <ul>
         <li class="nav-menu">
-            <a href="/documentacion">Consultas generales de estudiantes</a>
+            <a href="/inicio/estudiantes">Consultas generales de estudiantes</a>
         </li>
         <li class="nav-menu">
-            <a href="/documentacion">Consultas generales de profesores</a>
+            <a href="/inicio/asignaturas">Consultas generales de profesores</a>
         </li>
         <li class="nav-menu">
             <a href="/documentacion">Consultas generales de asignaturas</a>
@@ -30,6 +28,13 @@
         </li>
 
     </ul>
+    <div class="showcase">
+        
+        <p>Acerca de la base de datos</p>
+
+    </div>
+
+
 
 
     <p>MYSQL_ADDON_HOST=bvxkl8kzdxxyvlg9pqox-mysql.services.clever-cloud.com</p>
@@ -56,6 +61,6 @@
         <input type="submit" value="Registrar">
 
     </form>
-    
+</div>
 </body>
 </html>
