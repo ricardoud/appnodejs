@@ -20,7 +20,6 @@ app.listen(3000, function(){
 }
 )
 
-
 const conexion = mysql.createConnection({
     host: "bvxkl8kzdxxyvlg9pqox-mysql.services.clever-cloud.com",
     database: "bvxkl8kzdxxyvlg9pqox",
