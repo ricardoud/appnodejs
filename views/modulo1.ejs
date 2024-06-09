@@ -23,13 +23,20 @@
     <a href="">Consulta de un estudiante en especifico</a>    
     <br>
 
-    <form action="/inicio/estudiantes/consolidado/?" method="get">    
-        id:
-        <input type="number" name="id" id="id">
-        <br>
-        <input type="submit" value="Consultar">
 
-    </form>
-    
+        <input type="number" id="input">
+        <br>
+        <button onclick="generaurl()">Enviar solicitud</button>
+
+        <script>
+            function generaurl(){
+                let atri=document.getElementById("input").value;
+                console.log("Hola")
+                let url='/inicio/estudiantes/consolidado/'+atri
+                window.open(url)
+
+            }
+        </script>
+
 </body>
 </html>
