@@ -84,9 +84,9 @@ app.get("/inicio/estudiantes/consolidado",function(req,res){
 
 
 
-app.get("/inicio/asignaturas",function(req,res){
+app.get("/inicio/profesores",function(req,res){
 
-  res.render("inicio.ejs");  
+  res.render("profesores.ejs");  
 
 });
 
