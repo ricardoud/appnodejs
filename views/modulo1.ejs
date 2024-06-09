@@ -10,8 +10,26 @@
 
     <h1 class="titini">Consultas generales de estudiantes</h1>
     <br>
+    <p class="pint">Esta aplicación web esta diseñada con base a una API REST, y tiene por objetivoconsulta los registro de una base de datos alojada 
+        localmente, la cual, contiene información respecto de tres entidades principales (estudiantes, profesores, asignaturas). Asimismo, esta permite
+        consultar las relaciones que pueden surgir, es decir, las asignaturas que tienen los estudiantes inscritas, asignaturas impartidas por un
+        profesor, y demas. </p>
     <hr>
     <h2>Selecciona la consulta que quieres realizar</h2>
+    <br>
+    <a href="/inicio/estudiantes/consolidado">Consulta de totalidad de estudiantes</a>
+    <br>
+    <br>
+    <a href="">Consulta de un estudiante en especifico</a>    
+    <br>
+
+    <form action="/inicio/estudiantes/consolidado/?" method="get">    
+        id:
+        <input type="number" name="id" id="id">
+        <br>
+        <input type="submit" value="Consultar">
+
+    </form>
     
 </body>
 </html>

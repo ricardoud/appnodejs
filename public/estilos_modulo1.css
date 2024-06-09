@@ -16,3 +16,30 @@ body{
     padding-bottom: 10px;
     
 }
+
+.table{
+
+    color: azure;
+}
+
+
+a{
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.pint{
+
+    color: azure;
+    background-color: black;
+    justify-content: flex-end;
+    text-align: justify;
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding:10px;
+    margin: 0px;
+}
+
+h2{
+color: azure;
+}
