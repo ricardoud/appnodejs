@@ -137,6 +137,25 @@ app.post('/inicio/estudiantes/consolidado/registro', (req, res) => {
    
 });
 
+//ENDOPOINT ACTUALIZACION ESTUDIANTE//
+
+app.put('/inicio/estudiantes/consolidado/actualizar', (req, res) => {
+  const idd = req.body;
+  const cod_e = idd.cod_e;
+  conexion.query('UPDATE estudiantes SET ? WHERE cod_e = ?', [idd, cod_e], (err, results, fields) => {
+    if (err) {
+      console.error('No se pudo ACTUALIZAR: ' + err.stack);
+      res.send("Error de actualización");
+      return;
+    }
+    res.send(results);
+  });
+
+});
+
+
+
+
 //ENDPOINT CONSULTA INICIAL TOTAL DE PROFESORES //
 app.get("/inicio/profesores/consolidado",function(req,res){
       
@@ -176,6 +195,23 @@ app.post('/inicio/profesor/consolidado/registro', (req, res) => {
     res.send(results)
     })
    
+});
+
+
+//ENDOPOINT ACTUALIZACION PROFESOR//
+
+app.put('/inicio/profesores/consolidado/actualizar', (req, res) => {
+  const idd = req.body;
+  const id_p = idd.id_p;
+  conexion.query('UPDATE profesores SET ? WHERE id_p = ?', [idd, id_p], (err, results, fields) => {
+    if (err) {
+      console.error('No se pudo ACTUALIZAR: ' + err.stack);
+      res.send("Error de actualización");
+      return;
+    }
+    res.send(results);
+  });
+
 });
 
 //ENDPOINT CONSULTA INICIAL TOTAL DE ASIGNATURAS //
@@ -218,6 +254,23 @@ app.post('/inicio/asignaturas/consolidado/registro', (req, res) => {
    
 });
 
+
+//ENDOPOINT ACTUALIZACION ASIGNATURA//
+
+app.put('/inicio/asignaturas/consolidado/actualizar', (req, res) => {
+  const idd = req.body;
+  const cod_a = idd.cod_a;
+  conexion.query('UPDATE asignaturas SET ? WHERE cod_a = ?', [idd, cod_a], (err, results, fields) => {
+    if (err) {
+      console.error('No se pudo ACTUALIZAR: ' + err.stack);
+      res.send("Error de actualización");
+      return;
+    }
+    res.send(results);
+  });
+
+});
+
 //ENDPOINT CONSULTA PROFESORES EN ESPECIFICO CON MATERIAS IMPARTIDAS //
 app.get('/inicio/profesores/consolidado/:cod_e/asignaturas', (req, res) => {
   const idd = req.params.cod_e; // Capturar el parámetro id de la URL
@@ -245,4 +298,44 @@ app.get('/inicio/asignaturas/consolidado/:cod_e/profesores', (req, res) => {
     })
 });
 
+
+//ENDPOINT ACTUALIZACION IMPARTE// (considerar que se toma como paramete el id de profesor codigo asignatura y grupo se edita es el horario)
+
+app.put('/inicio/profesores/imparte', (req, res) => {
+  const idd = req.body;
+  const id_p = idd.id_p;
+  const cod_a=idd.cod_a;
+  const grupo=idd.grupo;
+  conexion.query('UPDATE imparte SET ? WHERE id_p = ? and cod_a=? and grupo=?', [idd, id_p,cod_a,grupo], (err, results, fields) => {
+    if (err) {
+      console.error('No se pudo ACTUALIZAR: ' + err.stack);
+      res.send("Error de actualización");
+      return;
+    }
+    res.send(results);
+  });
+});
+
+
+  //ENDPOINT ACTUALIZACION INSCRIBE// (considerar que se toma como paramete el id de profesor codigo asignatura y grupo se edita es el horario)
+
+app.put('/inicio/estudiantes/inscribe', (req, res) => {
+  const idd = req.body;
+  const cod=idd.cod_e;
+  console.log(idd.cod_e)
+  const id_p=idd.id_p;
+  const cod_a=idd.cod_a;
+  const grupo=idd.grupo;
+  
+
+  conexion.query('UPDATE inscribe SET ? WHERE cod_e=? and id_p = ? and cod_a=? and grupo=? ', [idd,cod,id_p,cod_a,grupo], (err, results, fields) => {
+    if (err) {
+      console.error('No se pudo ACTUALIZAR: ' + err.stack);
+      res.send("Error de actualización");
+      return;
+    }
+    res.send(results);
+  });
+
+});
 
