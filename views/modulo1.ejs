@@ -37,6 +37,30 @@
 
             }
         </script>
+<hr>
+<h2>Registra un estudiante</h2>
+<form action='/inicio/estudiantes/consolidado/registro' target="" method="post" name="formDatosPersonales">
+
+	<label for="codigo">Codigo</label><br>
+	<input type="number" name="cod_e" id="codigo" placeholder="Escribe codigo estudiante"/><br>
+
+	<label for="nombre">Nombre</label><br>
+	<input type="text" name="nom_e" id="nombre" placeholder="Escribe nombre estudiante"/><br>
+
+	<label for="direccion" >Dirección</label><br>
+	<input type="text" name="dir_e" id="direccion" placeholder="Escribe direccion estudiante" required /><br>
+
+	<label for="telefono">Telefono</label><br>
+	<input type ="text" name="tel_e" id="telefono" placeholder="Escribe telefono estudiante"/><br>
+	
+	<label for="codigo_carr">Codigo Carr</label><br>
+	<input type ="number" name="cod_carr" id="codigo_carr" placeholder="Escribe cod_carr estudiante"/><br>
+
+	<label for="fecha_nac">Fecha Nac</label><br>
+	<input type ="date" name="f_nac" id="f_nac" placeholder="Escribe fecha nac estudiante"/>
+
+	<input type="submit"  value="Guardar Estudiante"/>
+</form>
 
 </body>
 </html>

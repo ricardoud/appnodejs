@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/estilos_modulo1.css" type="text/css">
-    <title>Mod. Profesores</title>
+    <title>Mod. Asignaturas</title>
 </head>
 <body>
 
-    <h1 class="titini">Consultas generales de profesores</h1>
+    <h1 class="titini">Consultas generales de asignaturas</h1>
     <br>
     <p class="pint">Esta aplicación web esta diseñada con base a una API REST, y tiene por objetivoconsulta los registro de una base de datos alojada 
         localmente, la cual, contiene información respecto de tres entidades principales (estudiantes, profesores, asignaturas). Asimismo, esta permite
@@ -17,10 +17,10 @@
     <hr>
     <h2>Selecciona la consulta que quieres realizar</h2>
     <br>
-    <a href="/inicio/profesores/consolidado">Consulta de totalidad de profesores</a>
+    <a href="/inicio/asignaturas/consolidado">Consulta de totalidad de asignaturas</a>
     <br>
     <br>
-    <a href="">Consulta de un profesor en especifico</a>    
+    <a href="">Consulta de una asignatura en especifico</a>    
     <br>
 
 
@@ -28,48 +28,47 @@
         <br>
         <button onclick="generaurl()">Enviar solicitud</button>
         <br>
-    <a href="">Consulta de asignaturas impartidas por un profesor (digita id del profesor)</a>
+    <a href="">Consulta de asignaturas impartidas por un profesor (digita id de la asignatura)</a>
     <br>
     <input type="number" id="input2">
     <br>
     <button onclick="generaurl2()">Enviar solicitud</button>
 
-
-
         <script>
             function generaurl(){
+
                 let atri=document.getElementById("input").value;
                 console.log("Hola")
-                let url='/inicio/profesores/consolidado/'+atri
+                let url='/inicio/asignaturas/consolidado/'+atri
                 window.open(url)
-
             }
             function generaurl2(){
                 let atri=document.getElementById("input2").value;
                 console.log("Hola")
-                let url='/inicio/profesores/consolidado/'+atri+'/asignaturas'
+                let url='/inicio/asignaturas/consolidado/'+atri+'/profesores'
                 window.open(url)
-
-            }
-
-        </script>
-    <hr>
-        <h2>Registra un profesor</h2>
-        <form action='/inicio/profesor/consolidado/registro' target="" method="post" name="formDatosPersonales">
-        
-            <label for="codigo">Id Profesor</label><br>
-            <input type="number" name="id_p" id="codigo" placeholder="Escribe id profesor"/><br>
-        
-            <label for="nombre">Nombre</label><br>
-            <input type="text" name="nom_p" id="nombre" placeholder="Escribe nombre profesor"/><br>
-        
-            <label for="direccion" >Profesion</label><br>
-            <input type="text" name="profesion" id="direccion" placeholder="Escribe profesion profesor" required /><br>
-        
-            <label for="telefono">Telefono</label><br>
-            <input type ="text" name="tel_p" id="telefono" placeholder="Escribe telefono profesor"/><br>
+                                }
             
-            <input type="submit"  value="Guardar Profesor"/>
-        </form>
+        </script>
+
+
+<h2>Registra una asignatura</h2>
+<form action='/inicio/asignaturas/consolidado/registro'target="" method="post" name="formDatosPersonales">
+
+	<label for="codigo">Codigo</label><br>
+	<input type="number" name="cod_a" id="codigo" placeholder="Escribe codigo asignatura"/><br>
+
+	<label for="nombre">Nombre</label><br>
+	<input type="text" name="nom_a" id="nombre" placeholder="Escribe nombre asignatura"/><br>
+
+	<label for="direccion" >Intensidad Horas</label><br>
+	<input type="text" name="ih" id="direccion" placeholder="Escribe intensidad horaria" required /><br>
+
+	<label for="telefono">Creditos</label><br>
+	<input type ="text" name="cred" id="telefono" placeholder="Escribe creditos asignatura"/><br>
+	
+	<input type="submit"  value="Guardar Asignatura"/>
+</form>
+
 </body>
 </html>

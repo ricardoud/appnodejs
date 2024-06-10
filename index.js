@@ -90,6 +90,13 @@ app.get("/inicio/profesores",function(req,res){
 
 });
 
+app.get("/inicio/asignaturas",function(req,res){
+
+  res.render("asignaturas.ejs");  
+
+});
+
+
 
   
 
@@ -99,7 +106,7 @@ app.post("/validar",function(req,res){
     console.log(dat);
 });
 
-
+// ENDPOINT CONSLTA ESTUDIANTE ESPECIFICO //
 app.get('/inicio/estudiantes/consolidado/:cod_e', (req, res) => {
   const idd = req.params.cod_e; // Capturar el parámetro id de la URL
    
@@ -111,4 +118,128 @@ app.get('/inicio/estudiantes/consolidado/:cod_e', (req, res) => {
     res.send(results)
     })
 });
+
+//ENDPOINT GUARDADO ESTUDIANTE//
+
+app.post('/inicio/estudiantes/consolidado/registro', (req, res) => {
+  const idd = req.body;
+  conexion.query('INSERT INTO estudiantes set ?',[idd],(err, results, fields) => {
+    if (err) {
+      console.error('No se pudo GUARDAR: ' + err.stack);
+      res.send("Codigo de estudiante ya existente")
+      return;
+    }
+    res.send(results)
+    })
+   
+});
+
+//ENDPOINT CONSULTA INICIAL TOTAL DE PROFESORES //
+app.get("/inicio/profesores/consolidado",function(req,res){
+      
+  conexion.query('SELECT * FROM profesores', (err, results, fields) => {
+      if (err) {
+        console.error('Error en la consulta: ' + err.stack);
+        return;
+      }
+  res.send(results)
+  });
+});
+
+//ENDPOINT CONSULTA PROFESOR EN ESPECIFICO //
+app.get('/inicio/profesores/consolidado/:cod_e', (req, res) => {
+  const idd = req.params.cod_e; // Capturar el parámetro id de la URL
+   
+  conexion.query('SELECT * FROM profesores where id_p=?',[idd],(err, results, fields) => {
+    if (err) {
+      console.error('Error en la consulta: ' + err.stack);
+      return;
+    }
+    res.send(results)
+    })
+});
+
+
+//ENDPOINT GUARDADO PROFESOR//
+
+app.post('/inicio/profesor/consolidado/registro', (req, res) => {
+  const idd = req.body;
+  conexion.query('INSERT INTO profesores set ?',[idd],(err, results, fields) => {
+    if (err) {
+      console.error('No se pudo GUARDAR: ' + err.stack);
+      res.send("Id de profesor ya existente")
+      return;
+    }
+    res.send(results)
+    })
+   
+});
+
+//ENDPOINT CONSULTA INICIAL TOTAL DE ASIGNATURAS //
+app.get("/inicio/asignaturas/consolidado",function(req,res){
+      
+  conexion.query('SELECT * FROM asignaturas', (err, results, fields) => {
+      if (err) {
+        console.error('Error en la consulta: ' + err.stack);
+        return;
+      }
+  res.send(results)
+  });
+});
+
+
+//ENDPOINT CONSULTA ASIGNATURAS EN ESPECIFICO //
+app.get('/inicio/asignaturas/consolidado/:cod_e', (req, res) => {
+  const idd = req.params.cod_e; // Capturar el parámetro id de la URL
+   
+  conexion.query('SELECT * FROM asignaturas where cod_a=?',[idd],(err, results, fields) => {
+    if (err) {
+      console.error('Error en la consulta: ' + err.stack);
+      
+      return;
+    }
+    res.send(results)
+    })
+});
+//ENDPOINT REGISTRO ASIGNATURAS //
+app.post('/inicio/asignaturas/consolidado/registro', (req, res) => {
+  const idd = req.body;
+  conexion.query('INSERT INTO asignaturas set ?',[idd],(err, results, fields) => {
+    if (err) {
+      console.error('No se pudo GUARDAR: ' + err.stack);
+      res.send("Id de asignatura ya existente")
+      return;
+    }
+    res.send(results)
+    })
+   
+});
+
+//ENDPOINT CONSULTA PROFESORES EN ESPECIFICO CON MATERIAS IMPARTIDAS //
+app.get('/inicio/profesores/consolidado/:cod_e/asignaturas', (req, res) => {
+  const idd = req.params.cod_e; // Capturar el parámetro id de la URL
+  console.log(idd)
+  conexion.query('SELECT * FROM imparte where id_p=?',[idd],(err, results, fields) => {
+    if (err) {
+      console.error('Error en la consulta: ' + err.stack);
+      return;
+    }
+    res.send(results)
+    })
+});
+
+
+//ENDPOINT CONSULTA ASIGNATURAS EN ESPECIFICO CON SU PROFESOR QUE IMPARTE //
+app.get('/inicio/asignaturas/consolidado/:cod_e/profesores', (req, res) => {
+  const idd = req.params.cod_e; // Capturar el parámetro id de la URL
+  console.log(idd)
+  conexion.query('SELECT * FROM imparte where cod_a=?',[idd],(err, results, fields) => {
+    if (err) {
+      console.error('Error en la consulta: ' + err.stack);
+      return;
+    }
+    res.send(results)
+    })
+});
+
 
