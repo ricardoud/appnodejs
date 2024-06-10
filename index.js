@@ -1,14 +1,17 @@
-const express = require("express");
-const app = express();
-const path = require('path');
-const mysql = require("mysql");
+//Importaciones modulos //
+const express = require("express"); // importacion modulo express
+const app = express(); // creacion de variable con express
+const path = require('path');// importancion de modulo para manejar URLs
+const mysql = require("mysql"); // importación de modulo 
+
 
 // Servir archivos estáticos desde el directorio "public"
 app.use(express.static(path.join(__dirname, 'public')));
 // Paquetes para manejo de archivos HTMl virtualizados, JSON, y transferencia de Body//
 app.set("view engine", "ejs");
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json());// paquete para manejo de archivos JSON
+app.use(express.urlencoded({ extended: false })); // paquete para manejo de archivos JSON con URL
+
 
 //Habilitacion del servidor en puerto 3000//
 app.listen(3000, function(){
@@ -17,7 +20,6 @@ app.listen(3000, function(){
   
 }
 )
-
 
 // Conexion a base de datos creada //
 const conexion = mysql.createConnection({
@@ -77,6 +79,7 @@ app.get("/inicio/estudiantes/consolidado",function(req,res){
             console.error('Error en la consulta: ' + err.stack);
             return;
           }
+      //console.log(results)
       res.send(results)
       });
 });

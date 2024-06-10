@@ -30,6 +30,7 @@
         <br>
     <a href="">Consulta de asignaturas impartidas por un profesor (digita id del profesor)</a>
     <br>
+
     <input type="number" id="input2">
     <br>
     <button onclick="generaurl2()">Enviar solicitud</button>
@@ -39,14 +40,14 @@
         <script>
             function generaurl(){
                 let atri=document.getElementById("input").value;
-                console.log("Hola")
+                //console.log("Hola")
                 let url='/inicio/profesores/consolidado/'+atri
                 window.open(url)
 
             }
             function generaurl2(){
                 let atri=document.getElementById("input2").value;
-                console.log("Hola")
+                //console.log("Hola")
                 let url='/inicio/profesores/consolidado/'+atri+'/asignaturas'
                 window.open(url)
 
