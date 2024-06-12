@@ -22,7 +22,7 @@ app.listen(3000, function(){
   console.log("Servidor creado");
   
 }
-)
+);
 
 // Conexion a base de datos creada //
 const conexion = mysql.createConnection({
@@ -47,4 +47,4 @@ const customerRoutes=require('./routes/routes.js'); // llamado a archivo de ruta
 app.use('/',customerRoutes)//indicacion a la app de usar las rutas definidas
 
 
-
+module.exports= conexion; // exportacion a archivo principal de rutas o endpoints definidos

@@ -44,6 +44,13 @@ router.get("/inicio",function(req,res){
   
   });
 
+//ENDPOINT BASE DE DATOS//
+  router.get("/inicio/bd",function(req,res){
+    console.log("Status code:" +res.statusCode)
+      res.render("basedatos.ejs");// se llama a renderizar el archivo HTML denomindado inicio.ejs
+    
+    });
+
 
   //ENDPOINT SEGUNDA INTERFAZ//
 router.get("/inicio/estudiantes",function(req,res){
