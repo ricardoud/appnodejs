@@ -24,7 +24,6 @@ app.listen(3000, function(){
 }
 )
 
-
 // Conexion a base de datos creada //
 const conexion = mysql.createConnection({
     host:process.env.host,
